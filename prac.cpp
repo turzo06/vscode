@@ -23,26 +23,26 @@ typedef vector<ll> vll;
 #define dcr(i, n) for (ll i = n - 1; i >= 0; i--)
 
 // Printing Shortcut
-#define dp(x) cout << x << endl;
-#define dp2(x, y) cout << x << " " << y << endl;
+#define dp(x) cout << x << endl
+#define dp2(x,y) cout << x << " " << y << endl
 
 // Pre-Calculation
-#define gcd(a, b) __gcd(a, b)
-#define lcm(a, b) (a * b) / gcd(a, b)
-const ll mod = 1e9 + 7;
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a*b)/gcd(a,b)
+
+
+
 // Solution
 void solve()
 {
-    int n, m;
-    cin >> n;
-   dp(n/10);
+       
 }
 
 int main()
 {
     Fast_ios;
     ll t = 1;
-    // cin >> t;
+    //cin >> t;
     while (t--)
     {
         solve();
