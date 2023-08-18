@@ -1,0 +1,1 @@
+{"name":"Local: prac","url":"/home/tur/Documents/vscode/prac.cpp","tests":[{"id":1691383060507,"input":"5\n11 2\naAaaBACacbE\n2 2\nab\n4 1\naaBB\n6 0\nabBAcC\n5 3\ncbccb","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tur/Documents/vscode/prac.cpp","group":"local","local":true}
