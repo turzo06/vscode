@@ -54,7 +54,6 @@ void solve()
     else{
         cout<<"?"<<endl;
     }
-    
 }
 
 signed main()
