@@ -33,50 +33,43 @@ void sieve(){prime[0]=prime[1]=false;for(ll i=2;i<=N;i++){if(prime[i]==true){for
 // Solution
 void solve()
 {
-	   ll n;cin>>n;vll v(n);input(v);
-	   ll mi=INT_MAX,mx=0,c=1,c1=1;
-	   for (ll i = 0; i < n-1;i++)
-	   {
-		   if (v[i] == v[i+1]){
-			   c++;
-		   }
-		   else
-			   break;
-	   }
-	   for (ll i = c; i < n - 1; i++)
-	   {
-		   if (v[i] == v[i + 1])
-		   {
-			   c1++;
-		   }
-		   else
-			   break;
-	   }
-	   mi=min(c,c1);mx=max(2*mi,mx);
-	   ll prev_c=c1;ll current_c=0,oppo=c+c1-1;
-	   for(ll i=c+c1;i<n;i++){
-		if(v[i]!=v[oppo]){
-			current_c++;
-		}else{
-			oppo+=current_c;
-			mi=min(prev_c,current_c);mx=max(2*mi,mx);
-			prev_c=current_c;
-			if(i+2!=n){
-			current_c=0;
-			}
-		}
-	   }
-	   mi=min(prev_c,current_c);mx=max(2*mi,mx);
-	   dp(mx);
+       ll n,x,y,p;cin>>n;
+       vector<vector<ll>> vp;
+    ll i=0,z=n-1;
+    map<ll,ll> m;
+    while (n--)
+    {
+        vll v(z);
+        input(v);
+        ll x=v.back();
+        m[x]++;
+        vp.push_back(v);
+    }
+    for(auto&u:m){
+        if(u.second==1){
+            x=u.first;
+        }else y=u.first;
+    }
+    for(ll i=0;i<=z;i++){
+        if(vp[i][z-1]==x){
+           p=i;break;
+        }
+    }
+    for(ll i=0;i<z;i++){
+        cout<<vp[p][i]<<" ";
+    }
+    cout<<y<<endl;
+
 }
+
 signed main()
 {
-	Fast_ios;
-	int t = 1;
-	//cin >> t;
-	while (t--)
-	{
-		solve();
-	}
-	return 0;
+    Fast_ios;
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
 }

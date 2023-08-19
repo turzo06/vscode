@@ -33,50 +33,33 @@ void sieve(){prime[0]=prime[1]=false;for(ll i=2;i<=N;i++){if(prime[i]==true){for
 // Solution
 void solve()
 {
-	   ll n;cin>>n;vll v(n);input(v);
-	   ll mi=INT_MAX,mx=0,c=1,c1=1;
-	   for (ll i = 0; i < n-1;i++)
-	   {
-		   if (v[i] == v[i+1]){
-			   c++;
-		   }
-		   else
-			   break;
-	   }
-	   for (ll i = c; i < n - 1; i++)
-	   {
-		   if (v[i] == v[i + 1])
-		   {
-			   c1++;
-		   }
-		   else
-			   break;
-	   }
-	   mi=min(c,c1);mx=max(2*mi,mx);
-	   ll prev_c=c1;ll current_c=0,oppo=c+c1-1;
-	   for(ll i=c+c1;i<n;i++){
-		if(v[i]!=v[oppo]){
-			current_c++;
-		}else{
-			oppo+=current_c;
-			mi=min(prev_c,current_c);mx=max(2*mi,mx);
-			prev_c=current_c;
-			if(i+2!=n){
-			current_c=0;
-			}
-		}
-	   }
-	   mi=min(prev_c,current_c);mx=max(2*mi,mx);
-	   dp(mx);
+       ll n;cin>>n;vll v(n);
+       map<ll,ll> m;
+       for(auto&u:v){
+        cin>>u;
+        m[u]++;
+       }
+       asc(v);ll ans=0;
+       for(ll i=0;i<n;i++){
+        if(m[v[i]]!=0){
+            ll value=v[i];ans++;
+            while(m[value]>0){
+                m[value]--;
+                value++;
+            }
+        }
+       }
+       dp(ans);
 }
+
 signed main()
 {
-	Fast_ios;
-	int t = 1;
-	//cin >> t;
-	while (t--)
-	{
-		solve();
-	}
-	return 0;
+    Fast_ios;
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
 }
