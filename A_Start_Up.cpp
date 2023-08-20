@@ -33,7 +33,17 @@ void sieve(){prime[0]=prime[1]=false;for(ll i=2;i<=N;i++){if(prime[i]==true){for
 // Solution
 void solve()
 {
-       
+       set<char> st={'B','C','D','E','F','G','J','K','L','N','P','Q','R','S','Z'};
+       string s,s1;cin>>s;s1=s;
+       for(ll i=0;i<s.size();i++){
+        if(st.count(s[i])){
+           dp("NO"); return;
+        }
+       }
+        rev(s1);
+        if(s==s1){
+            dp("YES");
+        }else dp("NO");
 }
 
 signed main()

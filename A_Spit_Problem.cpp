@@ -33,7 +33,22 @@ void sieve(){prime[0]=prime[1]=false;for(ll i=2;i<=N;i++){if(prime[i]==true){for
 // Solution
 void solve()
 {
-       
+       ll n;cin>>n;
+       vector<pair<ll,ll>> v;
+       while(n--){
+        ll x,d;cin>>x>>d;
+        v.pb({x,d});
+       }asc(v);
+       for(ll i=0;i<v.size()-1;i++){
+        for(ll j=i+1;j<v.size();j++){
+            ll x1=v[i].first,y1=v[i].second,x2=v[j].first,y2=v[j].second;
+            if (x1 + y1 == x2 && x1 == x2 + y2)
+            {
+                dp("YES");return;
+            }
+        }
+       }
+       dp("NO");
 }
 
 signed main()
