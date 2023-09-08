@@ -32,29 +32,23 @@ bool isPrime(ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)re
 // Solution
 void solve()
 {
-    unordered_map<ll,ll> m1,m2;
+    unordered_map<ll,ll> m1;
       ll x,y,ans=1;cin>>x;vll v1(x);input(v1);
       for(ll i=0;i<x;i++){
         cin>>y;m1[v1[i]]+=y;
       }
       cin>>y;vll v2(y);input(v2);
     for(ll i=0;i<y;i++){
-       cin>>x; m2[v2[i]]+=x;
+       cin>>x; m1[v2[i]]-=x;
     }
-   for(auto&u:m2){
-    if(!(m1[u.first])){
-        dp(0);return;
-    }
-    }
- for(auto&u:m1){
-    if(!(m2[u.first])){//not found
+   for(auto&u:m1){
+    if(u.second<0){
+        dp(0);
+        return;
+    }else if(u.second){
         ans=(ans*2)%mod;
-    }else{
-        if(u.second!=m2[u.first]){//found but power not equal
-            ans=(ans*2)%mod;
-        }
     }
- }
+    }
     dp(ans);
 }
 
