@@ -29,40 +29,31 @@ template<typename T,typename S>void print(vector<T>& v,S s){for(auto& i:v)cout<<
 template<typename T>void input(vector<T> &v){for(auto& i:v)cin>>i;}
 bool isPrime(ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for(int i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
 //void sieve(){prime[0]=prime[1]=false;for(ll i=2;i<=N;i++){if(prime[i]==true){for(ll j=i*i;j<=N;j+=i){prime[j]=false;}}}}
-bool cmp(pair<int, int> a, pair<int, int> b)
-{
-    if (a.second != b.second)
-    {
-       return b.second<a.second;
-    }
-    else
-    {
-        return a.first>b.first;
-    }
-}
+
 
 // Solution
 void solve()
 {
-       int n,c,p=0;cin>>n;
-       deque<pair<int,int>> vp;
-       for(int i=0;i<n;i++)
+      int n,x;cin>>n;
+      priority_queue<int> pq;
+      for(int i=0;i<n;i++){
+        cin>>x;pq.push(x);
+      }ll sum=0;
+      while (pq.size()>1)
       {
-      int x,y;cin>>x>>y;
-      vp.pb({x,y});
+        int out=pq.top();pq.pop();
+        int current_top=pq.top();
+        if(out!=current_top){
+            sum+=out;
+        }else{
+            out--;
+            if(out>0){
+            pq.push(out); 
+            }
+        }
       }
-      sort(vp.begin(),vp.end(),cmp);
-    c=vp[0].second;p+=vp[0].first;
-    vp.pop_front();
-   while(c>0 & !vp.empty()){
-    pair<int,int> pr=vp.front();
-    c+=pr.second;
-    p+=pr.first;
-    c--;
-    vp.pop_front();
-   }
-   dp(p);
-
+      dp(sum+pq.top());
+      
 }
 
 signed main()
