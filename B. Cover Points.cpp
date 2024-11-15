@@ -39,7 +39,7 @@ void solve()
         int x,y;cin>>x>>y;
         mini=max(x+y,mini);
        }
-       dp(mini);
+        dp(mini);
 }
 
 signed main()
