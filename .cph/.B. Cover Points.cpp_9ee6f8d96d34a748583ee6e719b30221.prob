@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"c:\\Users\\trzha\\Documents\\vscode\\B. Cover Points.cpp","tests":[{"id":1731690573458,"input":"3\n1 1\n1 2\n2 1","output":"3"},{"id":1731690592775,"input":"4\n1 1\n1 2\n2 1\n2 2","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\trzha\\Documents\\vscode\\B. Cover Points.cpp","group":"local","local":true}

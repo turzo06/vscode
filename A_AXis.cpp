@@ -44,7 +44,7 @@ void solve()
     ans=0;ans+=abs(v[1]-v[0])+abs(v[1]-v[2]);
     mini=min(mini,ans);
     ans=0;ans+=abs(v[2]-v[0])+abs(v[2]-v[1]);
-    mini=min(mini,ans);
+    mini=min(mini,ans); 
     dp(mini);
 }
 
